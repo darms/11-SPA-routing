@@ -24,7 +24,20 @@
         <a href="#" class="read-on">Read on &rarr;</a>
       </article>
     </script>
-  </head>
+    <script id="repo-template" type="text/x-handlebars-template">
+      <li>
+        <a href="{{html_url}}" target="_blank"><h3>{{name}}</h3></a>
+        <p>Description: {{description}}</p>
+        <p>Language: {{languages_url}}</p>
+        <p>Created: {{created_at}}</p>
+        <p>Last updated: {{updated_at}}</p>
+        {{#if watchers_count}}
+          <p>{{watchers_count}} watching this repo</p>
+        {{/if}}
+      </li>
+    </script>
+    </head>
+
   <body>
     <header class="site-header clearfix">
       <section class="heading-group-h1">
@@ -36,7 +49,7 @@
       <nav class="main-nav">
         <div class="icon-menu"></div>
         <ul>
-          <!-- TODO: Refactor the href attributes in the Home and About anchor tags to navigate users to our new client-side routes -->
+          <!-- TODO: DONE Refactor the href attributes in the Home and About anchor tags to navigate users to our new client-side routes -->
           <li class="tab" data-content="articles"><a href="#" class="icon-home"> Home</a></li>
           <li class="tab" data-content="about"><a href="#" class="icon-address-book"> About</a></li>
           <li><a href="http://twitter.com/brookr" target="_blank" class="icon-twitter3"> Twitter</a></li>
@@ -78,14 +91,19 @@
     <footer>
       &copy; 2017 Code Fellows | Static Blog | Happy Ipsum!
     </footer>
-    <!-- TODO: Be sure to include the routing functionality with the correct script files: -->
+    <!-- TODO: DONE Be sure to include the routing functionality with the correct script files: -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="/vendor/scripts/handlebars.js"></script>
     <script src="/vendor/scripts/marked.js"></script>
-
+//models
+    <script src="/scripts/models/repo.js"></script>
     <script src="/scripts/models/article.js"></script>
+//views
     <script src="/scripts/views/articleView.js"></script>
+    <script src="/scripts/views/repoView.js"></script>
+//controllers
+    <script src="/scripts/controllers/aboutController.js"></script>
 
   </body>
 </html>
